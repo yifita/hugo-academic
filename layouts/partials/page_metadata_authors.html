@@ -1,17 +1,14 @@
 {{/* Display author list. */}}
 
 {{ $taxonomy := "authors" }}
-{{ with .Param $taxonomy }}
-  {{ range $index, $value := . }}
-    {{- $profile_page := site.GetPage (printf "/%s/%s" $taxonomy (. | urlize)) -}}
-    {{- $name := $profile_page.Params.name | default ($value|markdownify) -}}
-    {{- if gt $index 0 }}, {{ end -}}
-    <span itemprop="author name" itemtype="http://schema.org/Person">
-      {{- with $profile_page -}}
-        <a href="{{.RelPermalink}}">{{$name}}</a>
-      {{- else -}}
-        {{$name}}
-      {{- end -}}
-    </span>
-  {{- end -}}
+{{ with .Params.authors }}
+{{ range $index, $value := . }}
+{{ if gt $index 0}}, {{ end }}
+{{ $author := index site.Data.coauthors $value}}
+{{ $name := $author.name | default $value }}
+{{ $link := $author.page | default "" }}
+<span itemprop="author name" itemtype="http://schema.org/Person">
+  <a href="{{$link | absURL }}">{{$name}}</a>
+</span>
+{{ end }}
 {{ end }}
