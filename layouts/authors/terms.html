@@ -11,10 +11,16 @@
   {{ end }}
 
   <ul>
-    {{ $paginator := .Paginate .Data.Pages }}
-    {{ range $k, $v := $paginator.Pages }}
-      {{ $name := $v.Params.name | default ($v.Title|plainify) }}
-      <li><a href="{{$v.Permalink}}">{{$name}}</a></li>
+    {{ $pages := .Data.Pages }}
+    {{ $paginator := .Paginate $pages }}
+    {{ range $v := sort $paginator.Pages "Title" }}
+    {{ if not .Params.superuser }}
+    {{ $name := (index site.Data.coauthors $v.Title ).name | default ($v.Title|plainify) }}
+    <li><a href="{{$v.Permalink}}">{{$name}}</a>    {{ with (index site.Data.coauthors $v.Title ).page}}
+      <a href="{{. | absURL}}"><i class="fas fa-external-link-alt"></i></a>
+      {{ end }}
+    </li>
+    {{ end }}
     {{ end }}
   </ul>
 

@@ -42,12 +42,14 @@ article {
   margin-left: auto;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  text-align: right;
 }
 
 .split-header-image {
   position: relative; /* Required for caption positioning */
   clear: both;
   max-width: 580px;
+  text-align: -webkit-right;
 }
 
 .article-header {
