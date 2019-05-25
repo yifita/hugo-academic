@@ -4,10 +4,16 @@
 
 {{/* If an account has not been created for this user, just display their name as the title. */}}
 {{ if not .File }}
+<<<<<<< HEAD
 {{ $author := index site.Data.coauthors $.Title }}
 {{ if $author }}
 {{ $name := $author.name }}
 {{ $link := $author.page }}
+=======
+{{ with index site.Data.coauthors $.Title }}
+{{ $name := .name }}
+{{ $link := .page }}
+>>>>>>> 6e0055764b3f2ed7dc46b4df1ec4ad84536f6e37
 <div class="universal-wrapper pt-3">
   <h1 itemprop="name"><a href="{{$link | absURL }}">{{$name}}</a></h1>
 </div>

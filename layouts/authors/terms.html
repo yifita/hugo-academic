@@ -11,6 +11,7 @@
   {{ end }}
 
   <ul>
+<<<<<<< HEAD
     {{ $pages := .Data.Pages }}
     {{ $paginator := .Paginate $pages }}
     {{ range $v := sort $paginator.Pages "Title" }}
@@ -21,6 +22,12 @@
       {{ end }}
     </li>
     {{ end }}
+=======
+    {{ $paginator := .Paginate .Data.Pages }}
+    {{ range $k, $v := $paginator.Pages }}
+    {{ $name := (index site.Data.coauthors $v.Title ).name | default ($v.Title|plainify) }}
+    <li><a href="{{$v.Permalink}}">{{$name}}</a></li>
+>>>>>>> 6e0055764b3f2ed7dc46b4df1ec4ad84536f6e37
     {{ end }}
   </ul>
 

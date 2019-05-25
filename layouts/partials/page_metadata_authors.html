@@ -3,6 +3,7 @@
 {{ $taxonomy := "authors" }}
 {{ with .Params.authors }}
 {{ range $index, $value := . }}
+<<<<<<< HEAD
 {{- if gt $index 0 -}}, {{- end -}}
 {{ if and (index site.Data.coauthors $value) ((index site.Data.coauthors $value).name) }}
 {{ $author := index site.Data.coauthors $value }}
@@ -15,5 +16,14 @@
 {{- else -}}
 <span itemprop="author name" itemtype="http://schema.org/Person"> {{$value}}</span>
 {{- end -}}
+=======
+{{ if gt $index 0}}, {{ end }}
+{{ $author := index site.Data.coauthors $value}}
+{{ $name := $author.name | default $value }}
+{{ $link := $author.page | default "" }}
+<span itemprop="author name" itemtype="http://schema.org/Person">
+  <a href="{{$link | absURL }}">{{$name}}</a>
+</span>
+>>>>>>> 6e0055764b3f2ed7dc46b4df1ec4ad84536f6e37
 {{ end }}
 {{ end }}
