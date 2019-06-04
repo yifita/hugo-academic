@@ -75,8 +75,11 @@
 - id: education
   translation: Education
 
+- id: latest
+  translation: Latest
+
 - id: user_profile_latest
-  translation: Latest collaboration
+  translation: Latest collaborations
 
 # Accomplishments widget
 

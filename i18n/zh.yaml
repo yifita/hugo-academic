@@ -44,6 +44,8 @@
   translation: 兴趣爱好
 - id: education
   translation: 教育经历
+- id: latest
+  translation: 动态
 - id: user_profile_latest
   translation: 最新合作
 - id: see_certificate

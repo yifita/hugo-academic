@@ -2,8 +2,8 @@
 {{ partial "navbar.html" . }}
 
 {{ partial "page_header.html" . }}
-
 <div class="universal-wrapper">
+  <div>default section</div>
   {{ with .Content }}
   <div class="article-style" itemprop="articleBody">{{ . }}</div>
   {{ end }}
