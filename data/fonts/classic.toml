@@ -9,7 +9,3 @@ heading_font = "Lato"
 body_font = "Merriweather"
 nav_font = "Lato"
 mono_font = "Roboto Mono"
-
-# Font size
-font_size = "16"
-font_size_small = "14"

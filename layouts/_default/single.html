@@ -1,46 +1,44 @@
 {{- define "main" -}}
 
-<article class="article" itemscope itemtype="http://schema.org/Article">
+<article class="article">
 
-  {{ partial "page_header.html" . }}
+  {{ partial "page_header" . }}
 
   <div class="article-container">
 
-    <div class="article-style" itemprop="articleBody">
+    <div class="article-style">
       {{ .Content }}
     </div>
 
-    {{ partial "tags.html" . }}
+    {{ partial "page_edit" . }}
+
+    {{ partial "tags" . }}
 
     {{ if ne .Type "page" }}
-    {{ $related := site.RegularPages.Related . | first 5 }}
-    {{ with $related }}
-    <div class="article-widget">
-      <div class="hr-light"></div>
-      <h3>{{ i18n "related" }}</h3>
-      <ul>
-        {{ range . }}
-        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-        {{ end }}
-      </ul>
-    </div>
-    {{ end }}
+      {{ partial "page_author" . }}
+      {{ $related := site.RegularPages.Related . | first 5 }}
+      {{ with $related }}
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>{{ i18n "related" }}</h3>
+        <ul>
+          {{ range . }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
     {{ end }}
 
     {{ if site.Params.section_pager }}
     <div class="article-widget">
-      {{ partial "section_pager.html" . }}
+      {{ partial "section_pager" . }}
     </div>
     {{ end }}
 
-    {{ partial "comments.html" . }}
+    {{ partial "comments" . }}
 
   </div>
 </article>
 
-<<<<<<< HEAD
-{{ partial "footer_container.html" . }}
-{{ partial "footer.html" . }}
-=======
 {{- end -}}
->>>>>>> dc84c03fbd1a81ef619f8cf45a0c2aec84910461
