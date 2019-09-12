@@ -23,26 +23,27 @@ article {
   color: rgba(255,255,255,0.54);
 }
 
-// .split-header .page-subtitle {
-//   margin-bottom: 1.5rem;
-// }
+.split-header .page-subtitle {
+  margin-bottom: 1.5rem;
+}
 
-// .split-header-content {
-//   max-width: 612px;
-//   width: 100%;
-//   padding: 60px 60px 32px 0;
-//   margin-left: auto;
-//   -webkit-box-sizing: border-box;
-//   box-sizing: border-box;
-//   text-align: right;
-// }
+.split-header-content {
+  max-width: inherit;
+  width: 100%;
+  padding: 60px 0 32px 0;
+  margin-left: auto;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: right;
+}
 
-// .split-header-image {
-//   position: relative; /* Required for caption positioning */
-//   clear: both;
-//   max-width: 580px;
-//   text-align: -webkit-right;
-// }
+.split-header-image {
+  position: inherit; 
+  padding: 60px 0 32px 32px;
+  clear: both;
+  max-width: inherit;
+  text-align: -webkit-right;
+}
 
 .article-header {
   position: relative; /* Required for caption positioning */
