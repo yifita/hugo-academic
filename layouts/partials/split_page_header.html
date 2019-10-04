@@ -23,7 +23,6 @@
   {{ else }}
   <img src="{{ (printf "/img/%s" .Params.header.image) | relURL }}" class="article-banner" alt="">
   {{ end }}
-
   {{ with .Params.header.caption }}<span class="article-header-caption">{{ . | markdownify | emojify }}</span>{{ end }}
 </div>
 {{end}}
@@ -32,7 +31,6 @@
 {{ if and $featured (not .Params.image.preview_only) }}
 <div class="container-fluid split-header">
   <div class="row">
-    <div class="col-6">
       <div class="split-header-content">
         <h1 itemprop="name">{{ $title }}</h1>
 
@@ -42,18 +40,15 @@
 
         {{/* Fit image within max size. */}}
 
-        {{ $image := $featured.Fit (printf "680x400 q90") }}
         {{ partial "page_links_div.html" $page }}
         {{ partial "share.html" $page }}
       </div>
-    </div>
-    <div class="col-6">
-      <div class="split-header-image">
+      {{ $image := $featured.Fit (printf "680x400 q90") }}
+      <div class="split-header-image d-none d-lg-block">
         <img src="{{ $image.RelPermalink }}" itemprop="image" alt="">
         {{ with $.Params.image.caption }}<span
           class="article-header-caption">{{ . | markdownify | emojify }}</span>{{ end }}
       </div>
-    </div>
   </div>
 </div>
 

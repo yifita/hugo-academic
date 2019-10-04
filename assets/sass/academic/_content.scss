@@ -22,13 +22,14 @@ article {
 .dark .page-subtitle {
   color: rgba(255,255,255,0.54);
 }
-
+.split-header {
+  max-width: 760px;
+}
 .split-header .page-subtitle {
   margin-bottom: 1.5rem;
 }
 
 .split-header-content {
-  max-width: inherit;
   width: 100%;
   padding: 60px 0 32px 0;
   margin-left: auto;
@@ -38,10 +39,8 @@ article {
 }
 
 .split-header-image {
-  position: inherit; 
   padding: 60px 0 32px 32px;
   clear: both;
-  max-width: inherit;
   text-align: -webkit-right;
 }
 
